@@ -102,3 +102,13 @@ children pada parameters:
 ['(', 'identifier', ')']
 named_children pada parameters:
 ['identifier']
+
+=== Percobaan sintaks rusak ===
+Kode:
+def tambah_bonus(nilai)
+    return nilai + 5
+
+Pohon:
+(module (ERROR (identifier) (parameters (identifier)) (return_statement (binary_operator left: (identifier) right: (integer)))))
+
+Mengandung error: True

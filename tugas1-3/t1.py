@@ -70,3 +70,16 @@ print([child.type for child in parameter.children])
 
 print("named_children pada parameters:")
 print([child.type for child in parameter.named_children])
+
+# Percobaan: hapus titik dua pada definisi fungsi
+kode_rusak = contoh_kode["Fungsi"].replace(":", "", 1)
+tree_rusak = parser.parse(kode_rusak.encode("utf-8"))
+
+print("\n=== Percobaan sintaks rusak ===")
+print("Kode:")
+print(kode_rusak)
+
+print("\nPohon:")
+print(tree_rusak.root_node)
+
+print("\nMengandung error:", tree_rusak.root_node.has_error)

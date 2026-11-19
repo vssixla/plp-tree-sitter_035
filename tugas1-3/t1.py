@@ -19,3 +19,15 @@ kode_fungsi = b"""def kuadrat(x):
 
 pohon_fungsi = parser.parse(kode_fungsi)
 print(pohon_fungsi.root_node)
+
+#Percobaan 2: If/Else
+print("\nPercobaan 2 - If/Else")
+
+kode_if_else = b"""if hadir:
+    poin = 1
+else:
+    poin = 0
+"""
+
+pohon_if_else = parser.parse(kode_if_else)
+print(pohon_if_else.root_node)

@@ -42,3 +42,19 @@ kode_kelas = b"""class Kata:
 
 pohon_kelas = parser.parse(kode_kelas)
 print(pohon_kelas.root_node)
+
+# Pemeriksaan node - Fungsi kuadrat
+print("\nPemeriksaan node - Fungsi kuadrat")
+
+fungsi = pohon_fungsi.root_node.named_children[0]
+parameter = fungsi.child_by_field_name("parameters")
+
+for induk in (fungsi, parameter):
+    print(f"\nSemua anak {induk.type} (children):")
+    for anak in induk.children:
+        jenis = "bernama" if anak.is_named else "anonim"
+        print(f"  {anak.type} -> {jenis}")
+
+    print(f"Anak bernama {induk.type} (named_children):")
+    for anak in induk.named_children:
+        print(f"  {anak.type}")

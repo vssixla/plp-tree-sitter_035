@@ -1,0 +1,47 @@
+HASIL TERMINAL PADA PERCOBAAN BERHASIL
+Pengujian Awal Tree Sitter Python
+(module (expression_statement (assignment left: (identifier) right: (integer))))
+
+Percobaan 1 - Fungsi kuadrat
+(module (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (binary_operator left: (identifier) right: (identifier))))))
+
+Percobaan 2 - If/Else
+(module (if_statement condition: (identifier) consequence: (block (expression_statement (assignment left: (identifier) right: (integer)))) alternative: (else_clause body: (block (expression_statement (assignment left: (identifier) right: (integer)))))))
+
+Percobaan 3 - Kelas dengan satu method
+(module (class_definition name: (identifier) body: (block (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (integer)))))))
+
+
+HASIL TERMINAL PADA PERCOBAAN MERUSAK KODE 
+D:\POLBAN\PEL\SEM3\PLP\plp-tree-sitter_035>python tugas1-3/t1.py
+Pengujian Awal Tree Sitter Python
+(module (expression_statement (assignment left: (identifier) right: (integer))))
+
+Percobaan 1 - Fungsi kuadrat
+(module (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (binary_operator left: (identifier) right: (identifier))))))
+
+Percobaan 2 - If/Else
+(module (if_statement condition: (identifier) consequence: (block (expression_statement (assignment left: (identifier) right: (integer)))) alternative: (else_clause body: (block (expression_statement (assignment left: (identifier) right: (integer)))))))
+
+Percobaan 3 - Kelas dengan satu method
+(module (class_definition name: (identifier) body: (block (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (integer)))))))
+
+Pemeriksaan node - Fungsi kuadrat
+
+Semua anak function_definition (children):
+  def -> anonim
+  identifier -> bernama
+  parameters -> bernama
+  : -> anonim
+  block -> bernama
+Anak bernama function_definition (named_children):
+  identifier
+  parameters
+  block
+
+Semua anak parameters (children):
+  ( -> anonim
+  identifier -> bernama
+  ) -> anonim
+Anak bernama parameters (named_children):
+  identifier

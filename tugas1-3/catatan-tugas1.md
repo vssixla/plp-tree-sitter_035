@@ -173,3 +173,20 @@ yaitu `(`, `identifier`, dan `)`. Dengan `named_children`, hanya
 `identifier` yang mewakili `x` yang tampil. Dari hasil ini, saya melihat
 bahwa `children` mencakup semua anak langsung, sedangkan `named_children`
 hanya mencakup anak langsung yang bernama.
+
+
+## PENGUJIAN KODE TANPA TITIK DUA
+Pada pengujian ini menghapus tanda `:` di akhir baris `def kuadrat(x):` pada salinan fungsi, lalu membandingkan hasil parse dengan fungsi asli.
+
+**HASIL PARSER**
+
+```text
+Pengujian error - Fungsi kuadrat tanpa titik dua
+Kode valid, has_error = False
+Kode rusak, has_error = True
+(module (ERROR (identifier) (parameters (identifier)) (return_statement (binary_operator left: (identifier) right: (identifier)))))
+```
+
+**PERBANDINGAN**
+
+Pada kode valid, anak langsung `module` adalah `function_definition` dan nilai `has_error` adalah `False`. Setelah titik dua dihapus, anak langsung `module` berubah menjadi `ERROR` dan `has_error` menjadi `True`. Tree-sitter tetap menghasilkan pohon. Di dalam `ERROR`, parser masih mengenali parameter `x` dan pernyataan `return x * x`.

@@ -58,3 +58,16 @@ for induk in (fungsi, parameter):
     print(f"Anak bernama {induk.type} (named_children):")
     for anak in induk.named_children:
         print(f"  {anak.type}")
+
+# Pengujian error - Fungsi kuadrat tanpa titik dua
+print("\nPengujian error - Fungsi kuadrat tanpa titik dua")
+
+kode_rusak = b"""def kuadrat(x)
+    return x * x
+"""
+
+pohon_rusak = parser.parse(kode_rusak)
+
+print("Kode valid, has_error =", pohon_fungsi.root_node.has_error)
+print("Kode rusak, has_error =", pohon_rusak.root_node.has_error)
+print(pohon_rusak.root_node)

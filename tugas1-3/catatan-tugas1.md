@@ -75,3 +75,40 @@ Saya sudah tepat memperkirakan `module` sebagai akar pohon dan `hadir` sebagai `
 Perbedaannya terdapat pada susunan cabang. Dalam prediksi saya, `condition` sejajar dengan `if_statement`, dan penugasan `poin = 1` berada di bawah kondisi. Hasil parser menunjukkan bahwa `condition`, `consequence`, dan `alternative` adalah tiga field milik satu `if_statement`. Field `condition` menunjuk ke `hadir`, sedangkan `consequence` menunjuk ke `block` yang berisi `poin = 1`.
 
 Untuk cabang `else`, saya memperkirakan ada `another_statement` dengan kondisi kedua. Pada hasil parser, field `alternative` menunjuk ke node `else_clause`. Di dalamnya, field `body` menunjuk ke `block` yang berisi `poin = 0`. Kondisi hanya muncul satu kali karena `else` dijalankan ketika kondisi `hadir` bernilai salah.
+
+
+## PERCOBAAN 3 — Kelas Dengan Satu Method
+**KODE YANG DIUJI**
+```python
+class Kata:
+    def jumlah_huruf(self):
+        return 3
+```
+
+**PREDIKSI SEBELUM PARSER**
+```text
+module
+    class_definition
+    name: identifier 
+    body: block
+        function_definition
+            name: identifier 
+            parameters: identifier 
+        body: block 
+	    return_statement
+	        integer
+```
+
+**HASIL PARSER**
+```text
+Percobaan 3 - Kelas dengan satu method
+(module (class_definition name: (identifier) body: (block (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (return_statement (integer)))))))
+```
+
+**PERBANDINGAN**
+
+Saya sudah memperkirakan bahwa `module` merupakan akar pohon, `jumlah_huruf` muncul sebagai `function_definition` di dalam blok kelas, dan angka `3` menjadi node `integer` di bawah `return_statement`. Saya juga memperkirakan adanya dua node `block`, masing-masing untuk isi kelas dan isi method.
+
+Dalam prediksi saya, `name` dan `body` milik kelas ditulis sejajar dengan `class_definition`. Hasil parser menunjukkan bahwa keduanya berada satu tingkat di dalam `class_definition`. Hal serupa terjadi pada `body` milik method. Saya menulisnya sejajar dengan `function_definition`, padahal blok yang berisi `return 3` berada di dalam definisi method tersebut.
+
+Perbedaan kedua terdapat pada parameter `self`. Saya memperkirakan `parameters: identifier`. Pada hasil aktual, field `parameters` menunjuk ke node `parameters`, lalu node tersebut memiliki anak `identifier` yang mewakili `self`.

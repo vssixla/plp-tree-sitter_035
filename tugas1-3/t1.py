@@ -31,3 +31,14 @@ else:
 
 pohon_if_else = parser.parse(kode_if_else)
 print(pohon_if_else.root_node)
+
+#Percobaan 3: Kelas dengan satu method
+print("\nPercobaan 3 - Kelas dengan satu method")
+
+kode_kelas = b"""class Kata:
+    def jumlah_huruf(self):
+        return 3
+"""
+
+pohon_kelas = parser.parse(kode_kelas)
+print(pohon_kelas.root_node)

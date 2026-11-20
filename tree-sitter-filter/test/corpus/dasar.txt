@@ -1,0 +1,12 @@
+==================
+Perbandingan status dengan string
+==================
+
+status = "open"
+
+---
+
+(query
+  (comparison
+    (identifier)
+    (string)))

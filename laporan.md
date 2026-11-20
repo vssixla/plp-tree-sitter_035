@@ -80,3 +80,39 @@ Capture `@fn` menunjukkan nama fungsi yang diperiksa oleh predikat `#eq?`, sedan
 **CATATAN PENGGUNAAN AI**
 
 AI membantu saya untuk menyiapkan contoh kode, menyusun pola query, memahami perbedaan antara `@fn` dan `@panggilan`, serta memberikan path untuk mengerjakan tugas 3 ini. 
+
+
+## TUGAS 4: GRAMMAR DSL FILTER UNTUK HALAMAN ADMIN
+
+Saya menyusun grammar bahasa filter di `tree-sitter-filter/grammar.js`. Saya mulai dari perbandingan sederhana seperti `status = "open"`, lalu menambahkan angka, boolean, operator logika, tanda kurung, serta operator `in` dan `contains`. Setiap kali menambahkan fitur, saya membangkitkan parser dengan `tree-sitter generate`, memeriksa pohonnya dengan `tree-sitter parse contoh.filter`, dan menguji hasilnya terhadap pohon yang diharapkan di `test/corpus/dasar.txt`.
+
+**PENGUJIAN DAN HASIL**
+
+Delapan kasus uji lulus. Tiga kasus pertama memeriksa perbandingan string, perbandingan angka, dan dua kondisi yang dihubungkan dengan `and`. Lima kasus berikut menunjukkan bagaimana parser mengelompokkan ekspresi.
+
+| Input | Hasil yang diperiksa |
+|---|---|
+| `a = 1 or b = 2 and c = 3` | Node terluar di bawah `query` adalah `or_expression`. Anak kanannya berupa `and_expression`, sehingga pengelompokannya adalah `a = 1 or (b = 2 and c = 3)`. |
+| `(a = 1 or b = 2) and c = 3` | Node terluarnya menjadi `and_expression`. Di sebelah kiri, `parenthesized` membungkus `or_expression`. |
+| `not archived = true` | Field `operand` pada `not_expression` memuat perbandingan dengan nilai bertipe `boolean`. |
+| `status in ("open", "pending", "closed")` | Satu `in_expression` memuat identifier `status` dan tiga node `string`. |
+| `title contains "invoice"` | `contains_expression` memuat `title` sebagai `field` dan string `"invoice"` sebagai `value`. |
+
+Hasil akhir dari `tree-sitter test`:
+
+```text
+Total parses: 8; successful parses: 8; failed parses: 0; success percentage: 100.00%; average speed: 1591 bytes/ms
+```
+
+**KENDALA DAN PENYELESAIAN**
+
+Pada tahap awal, `tree-sitter generate` menampilkan `ReferenceError: module is not defined in ES module scope`. Proyek saya menggunakan ES Module, sementara grammar awal menggunakan `module.exports`. Saya menggantinya dengan `export default` agar format ekspor grammar sesuai dengan konfigurasi proyek.
+
+Saat menambahkan `or_expression`, saya mendapat pesan `Unresolved conflict` untuk urutan `_expr 'or' _expr • 'or' …`. Pada rangkaian `A or B or C`, parser memiliki dua kemungkinan pengelompokan. Saya menggunakan `prec.left` untuk menetapkan pengelompokan dari kiri dan memberikan prioritas lebih tinggi kepada `and` daripada `or`. Saya memeriksa hasilnya melalui dua tes di atas, yaitu ekspresi campuran dengan dan tanpa tanda kurung.
+
+**CATATAN PENGGUNAAN AI**
+
+Saya menggunakan AI untuk membantu memahami konflik operator, membandingkan pohon dengan hasil yang diharapkan, membantu saya dalam memperbaiki kode program pada grammar.js . 
+
+[Grammar filter](tree-sitter-filter/grammar.js) · [Delapan kasus uji dan pohon yang diharapkan](tree-sitter-filter/test/corpus/dasar.txt)
+

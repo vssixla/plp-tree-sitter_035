@@ -1,1 +1,6 @@
-title contains "invoice"
+(status = "open" or status != "closed")
+and priority >= 2 and priority <= 5
+and total > 10 and total < 100
+and not archived = true and verified = false
+and category in ("bug", "task", "request")
+and title contains "invoice"

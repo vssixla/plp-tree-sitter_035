@@ -1,0 +1,2 @@
+../../requests-uji/src/requests/__version__.py -> SINTAKS VALID
+../../requests-uji/tests/test_adapters.py -> SINTAKS VALID

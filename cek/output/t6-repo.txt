@@ -1,0 +1,63 @@
+..\..\requests-uji\src\requests\adapters.py:715: # TODO: Remove this in 3.0.0: see #2811
+..\..\requests-uji\src\requests\adapters.py:85: fungsi _urllib3_request_context memiliki 35 baris
+..\..\requests-uji\src\requests\adapters.py:269: fungsi proxy_manager_for memiliki 37 baris
+..\..\requests-uji\src\requests\adapters.py:307: fungsi cert_verify memiliki 57 baris
+..\..\requests-uji\src\requests\adapters.py:365: fungsi build_response memiliki 37 baris
+..\..\requests-uji\src\requests\adapters.py:403: fungsi build_connection_pool_key_attributes memiliki 51 baris
+..\..\requests-uji\src\requests\adapters.py:455: fungsi get_connection_with_tls_context memiliki 56 baris
+..\..\requests-uji\src\requests\adapters.py:512: fungsi get_connection memiliki 42 baris
+..\..\requests-uji\src\requests\adapters.py:565: fungsi request_url memiliki 33 baris
+..\..\requests-uji\src\requests\adapters.py:634: fungsi send memiliki 115 baris
+..\..\requests-uji\src\requests\api.py:24: fungsi request memiliki 48 baris
+..\..\requests-uji\src\requests\auth.py:34: fungsi _basic_auth_str memiliki 42 baris
+..\..\requests-uji\src\requests\auth.py:157: fungsi build_digest_header memiliki 110 baris
+..\..\requests-uji\src\requests\auth.py:273: fungsi handle_401 memiliki 47 baris
+..\..\requests-uji\src\requests\cookies.py:494: fungsi create_cookie memiliki 35 baris
+..\..\requests-uji\src\requests\help.py:67: fungsi info memiliki 57 baris
+..\..\requests-uji\src\requests\hooks.py:29: # TODO: response is the only one
+..\..\requests-uji\src\requests\models.py:687: # TODO: can be fixed by flipping the conditionals
+..\..\requests-uji\src\requests\models.py:1016: # TODO: remove cast after iter_lines rewrite
+..\..\requests-uji\src\requests\models.py:183: fungsi _encode_files memiliki 69 baris
+..\..\requests-uji\src\requests\models.py:323: fungsi __init__ memiliki 33 baris
+..\..\requests-uji\src\requests\models.py:483: fungsi prepare_url memiliki 81 baris
+..\..\requests-uji\src\requests\models.py:576: fungsi prepare_body memiliki 77 baris
+..\..\requests-uji\src\requests\models.py:765: fungsi __init__ memiliki 46 baris
+..\..\requests-uji\src\requests\models.py:914: fungsi iter_content memiliki 64 baris
+..\..\requests-uji\src\requests\models.py:994: fungsi iter_lines memiliki 39 baris
+..\..\requests-uji\src\requests\models.py:1054: fungsi text memiliki 36 baris
+..\..\requests-uji\src\requests\models.py:1091: fungsi json memiliki 34 baris
+..\..\requests-uji\src\requests\sessions.py:154: fungsi should_strip_auth memiliki 31 baris
+..\..\requests-uji\src\requests\sessions.py:186: fungsi resolve_redirects memiliki 122 baris
+..\..\requests-uji\src\requests\sessions.py:334: fungsi rebuild_proxies memiliki 35 baris
+..\..\requests-uji\src\requests\sessions.py:442: fungsi __init__ memiliki 62 baris
+..\..\requests-uji\src\requests\sessions.py:511: fungsi prepare_request memiliki 45 baris
+..\..\requests-uji\src\requests\sessions.py:557: fungsi request memiliki 97 baris
+..\..\requests-uji\src\requests\sessions.py:752: fungsi send memiliki 78 baris
+..\..\requests-uji\src\requests\sessions.py:831: fungsi merge_environment_settings memiliki 38 baris
+..\..\requests-uji\src\requests\utils.py:99: fungsi proxy_bypass_registry memiliki 37 baris
+..\..\requests-uji\src\requests\utils.py:160: fungsi super_len memiliki 69 baris
+..\..\requests-uji\src\requests\utils.py:231: fungsi get_netrc_auth memiliki 50 baris
+..\..\requests-uji\src\requests\utils.py:290: fungsi extract_zipped_paths memiliki 36 baris
+..\..\requests-uji\src\requests\utils.py:440: fungsi parse_dict_header memiliki 32 baris
+..\..\requests-uji\src\requests\utils.py:633: fungsi get_unicode_from_response memiliki 39 baris
+..\..\requests-uji\src\requests\utils.py:810: fungsi should_bypass_proxies memiliki 61 baris
+..\..\requests-uji\src\requests\utils.py:965: fungsi parse_header_links memiliki 35 baris
+..\..\requests-uji\src\requests\_types.py:60: # TODO: move to collections.abc when Python >= 3.12
+..\..\requests-uji\src\requests\_types.py:61: # TODO: move to typing when Python >= 3.13
+..\..\requests-uji\src\requests\__init__.py:60: fungsi check_compatibility memiliki 37 baris
+..\..\requests-uji\tests\test_lowlevel.py:127: fungsi test_digestauth_401_count_reset_on_redirect memiliki 63 baris
+..\..\requests-uji\tests\test_lowlevel.py:192: fungsi test_digestauth_401_only_sent_once memiliki 44 baris
+..\..\requests-uji\tests\test_lowlevel.py:238: fungsi test_digestauth_only_on_4xx memiliki 35 baris
+..\..\requests-uji\tests\test_lowlevel.py:308: fungsi test_redirect_rfc1808_to_non_ascii_location memiliki 32 baris
+..\..\requests-uji\tests\test_lowlevel.py:364: fungsi test_fragment_update_on_redirect memiliki 41 baris
+..\..\requests-uji\tests\test_requests.py:450: fungsi test_cookielib_cookiejar_on_redirect memiliki 31 baris
+..\..\requests-uji\tests\test_requests.py:683: fungsi test_basicauth_with_netrc memiliki 34 baris
+..\..\requests-uji\tests\test_requests.py:841: fungsi test_POSTBIN_SEEKED_OBJECT_WITH_NO_ITER memiliki 40 baris
+..\..\requests-uji\tests\test_requests.py:1647: fungsi test_transport_adapter_ordering memiliki 37 baris
+..\..\requests-uji\tests\test_requests.py:2286: fungsi test_custom_redirect_mixin memiliki 43 baris
+..\..\requests-uji\tests\test_requests.py:2959: fungsi test_different_connection_pool_for_tls_settings_verify_bundle_expired_cert memiliki 32 baris
+..\..\requests-uji\tests\test_requests.py:2992: fungsi test_different_connection_pool_for_tls_settings_verify_bundle_unexpired_cert memiliki 31 baris
+..\..\requests-uji\tests\test_requests.py:3024: fungsi test_different_connection_pool_for_mtls_settings memiliki 38 baris
+..\..\requests-uji\tests\test_testserver.py:97: # TODO: figure out why this sometimes fails when using pytest-xdist.
+..\..\requests-uji\tests\test_utils.py:886: fungsi test_should_bypass_proxies_win_registry memiliki 35 baris
+..\..\requests-uji\tests\testserver\server.py:139: fungsi __init__ memiliki 31 baris

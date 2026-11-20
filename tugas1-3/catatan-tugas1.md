@@ -190,3 +190,7 @@ Kode rusak, has_error = True
 **PERBANDINGAN**
 
 Pada kode valid, anak langsung `module` adalah `function_definition` dan nilai `has_error` adalah `False`. Setelah titik dua dihapus, anak langsung `module` berubah menjadi `ERROR` dan `has_error` menjadi `True`. Tree-sitter tetap menghasilkan pohon. Di dalam `ERROR`, parser masih mengenali parameter `x` dan pernyataan `return x * x`.
+
+
+## LESSON LEARNET
+Pada Percobaan 1, saya membandingkan children dan named_children pada node parameters untuk (x). children memuat ketiga anak langsung, yaitu (, identifier untuk x, dan ). Sementara itu, named_children hanya memuat identifier karena kedua tanda kurung merupakan node anonim.

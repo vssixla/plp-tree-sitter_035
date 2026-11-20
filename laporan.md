@@ -20,7 +20,7 @@ Saat memeriksa draf, saya menemukan bahwa Percobaan 1 belum menyertakan pohon be
 Saya menggunakan `jelajah.py` untuk menampilkan pohon sintaks Python dengan satu node bernama per baris. Fungsi `jelajah()` dimulai dari `tree.root_node`, lalu menelusuri `node.children` secara rekursif. Untuk setiap anak dengan `is_named` bernilai benar, skrip mengambil nama field melalui `field_name_for_child(i)` menggunakan indeks asli anak tersebut. Setiap turun satu tingkat, skrip menambahkan dua spasi agar hubungan induk dan anak terlihat.
 
 **PENGUJIAN DAN HASIL**
-Saya menguji skrip pada `file.py`, program pengelolaan stok koperasi sepanjang 114 baris. Dari folder `tugas1-3/`, saya menyimpan hasil penelusuran pada file output/t2-pohon-stok.txt . 
+Saya menguji skrip pada `t2.jelajah.py` pada `t2.file.py`, program pengelolaan stok koperasi sepanjang 114 baris. Dari folder `tugas1-3/`, saya menyimpan hasil penelusuran pada file output/t2-pohon-stok.txt . 
 
 Cuplikan output berikut menunjukkan bagaimana Tree-sitter membaca perhitungan nilai stok pada fungsi `nilai_stok()`.
 
@@ -50,6 +50,8 @@ Saat membandingkan kedua output, saya menemukan perbedaan nomor baris. Saya menc
 **PENGGUNAAN AI** 
 
 AI membantu saya dalam membuatkan program `file.py` di mana pada file.py ini sayang mengingkan untuk memasukkan berbagai logika dan operasi. AI juga membantu validasi saya, yang awawlnya saya tidak sadar pada hal yang berkaitan dengan kendala. 
+
+[Program penjelajah](tugas1-3/t2.jelajah.py) · [Kode pengujian](tugas1-3/t2.file.py) · [Bukti output](tugas1-3/output/t2-pohon.txt)
 
 
 ## TUGAS 3: QUERY PERTAMA TREE-SITTER
@@ -165,7 +167,7 @@ uji\rusak.py:2: kesalahan sintaks (ERROR)
 ```
 Pada pengujian fungsi panjang, perubahan panjang `hitung_stok` dari 31 menjadi 32 baris menghasilkan perubahan jumlah baris yang sesuai pada output. Komentar TODO di dalam string tidak ikut dilaporkan karena query hanya menangkap node `comment`. Kesalahan pada `rusak.py` berhasil dikenali sebagai `ERROR` di baris 2.
 
-Pengujian selanjutnya dilakukan pada repositori open source Requests dari GitHub dengan commit `3c7baaa`. Program dijalankan menggunakan `python cek.py ..\..\requests-uji` dan menghasilkan 7 temuan komentar TODO/FIXME serta 57 fungsi dengan panjang lebih dari 30 baris. Tidak ditemukan laporan kesalahan sintaks. Salah satu hasilnya adalah fungsi `send` pada `adapters.py` sepanjang 115 baris dan `resolve_redirects` pada `sessions.py` sepanjang 122 baris.
+Pengujian selanjutnya dilakukan pada repositori open source Requests dari GitHub dengan commit `3c7baaa`. Program dijalankan menggunakan `python cek.py ..\..\requests-uji` dan menghasilkan 7 temuan komentar TODO/FIXME serta 56 fungsi dengan panjang lebih dari 30 baris. Tidak ditemukan laporan kesalahan sintaks. Salah satu hasilnya adalah fungsi `send` pada `adapters.py` sepanjang 115 baris dan `resolve_redirects` pada `sessions.py` sepanjang 122 baris.
 
 Untuk verifikasi, saya memilih dua file Python secara acak menggunakan `random.sample()` dari daftar file yang dilacak Git. Hasil pemeriksaan manual dibandingkan dengan output `cek.py`.
 

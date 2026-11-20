@@ -54,7 +54,7 @@ Pada contoh tersebut, program menemukan dua komentar, satu fungsi sepanjang 32 b
 ---
 
 ```text
-             /\_/\
-  ----------( o.o )----------
-             > ^ <
+ /\_/\
+( o.o )
+ > ^ <
 ```

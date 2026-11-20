@@ -1,6 +1,6 @@
-==================
+====================================
 Perbandingan status dengan string
-==================
+====================================
 
 status = "open"
 
@@ -10,3 +10,17 @@ status = "open"
   (comparison
     (identifier)
     (string)))
+
+
+====================================
+Perbandingan priority dengan number
+====================================
+
+priority >= 2
+
+---
+
+(query
+  (comparison
+    (identifier)
+    (number)))

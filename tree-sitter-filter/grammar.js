@@ -7,12 +7,14 @@ export default grammar({
 
     comparison: $ => seq(
       $.identifier,
-      '=',
-      $.string
+      choice('=', '!=', '>', '<', '>=', '<='),
+      choice($.string, $.number)
     ),
 
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
 
     string: $ => /"[^"]*"/,
+
+    number: $ => /-?\d+(\.\d+)?/,
   }
 });

@@ -102,3 +102,19 @@ not archived = true
     operand: (comparison
       field: (identifier)
       value: (boolean))))
+
+
+====================================
+Operator IN dengan tiga nilai string
+====================================
+
+status in ("open", "pending", "closed")
+
+---
+
+(query
+  (in_expression
+    field: (identifier)
+    (string)
+    (string)
+    (string)))

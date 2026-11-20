@@ -12,13 +12,29 @@ export default grammar({
       $.and_expression,
       $.or_expression,
       $.parenthesized,
-      $.not_expression
+      $.not_expression,
+      $.in_expression
     ),
 
     comparison: $ => seq(
       field('field', $.identifier),
       choice('=', '!=', '>', '<', '>=', '<='),
-      field('value', choice($.string, $.number, $.boolean))
+      field('value', $._value)
+    ),
+
+    in_expression: $ => seq(
+      field('field', $.identifier),
+      'in',
+      '(',
+      $._value,
+      repeat(seq(',', $._value)),
+      ')'
+    ),
+
+    _value: $ => choice(
+      $.string,
+      $.number,
+      $.boolean
     ),
 
     and_expression: $ => prec.left(2, seq(

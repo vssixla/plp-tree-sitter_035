@@ -20,7 +20,7 @@ Saat memeriksa draf, saya menemukan bahwa Percobaan 1 belum menyertakan pohon be
 Saya menggunakan `jelajah.py` untuk menampilkan pohon sintaks Python dengan satu node bernama per baris. Fungsi `jelajah()` dimulai dari `tree.root_node`, lalu menelusuri `node.children` secara rekursif. Untuk setiap anak dengan `is_named` bernilai benar, skrip mengambil nama field melalui `field_name_for_child(i)` menggunakan indeks asli anak tersebut. Setiap turun satu tingkat, skrip menambahkan dua spasi agar hubungan induk dan anak terlihat.
 
 **PENGUJIAN DAN HASIL**
-Saya menguji skrip pada `t2.jelajah.py` pada `t2.file.py`, program pengelolaan stok koperasi sepanjang 114 baris. Dari folder `tugas1-3/`, saya menyimpan hasil penelusuran pada file output/t2-pohon-stok.txt . 
+Saya menjalankan skrip `t2.jelajah.py` untuk menelusuri `t2.file.py`, yaitu program pengelolaan stok koperasi sepanjang 114 baris. Dari folder tugas1-3/, saya menyimpan hasil penelusuran pada file output/t2-pohon.txt.
 
 Cuplikan output berikut menunjukkan bagaimana Tree-sitter membaca perhitungan nilai stok pada fungsi `nilai_stok()`.
 
@@ -49,7 +49,7 @@ Saat membandingkan kedua output, saya menemukan perbedaan nomor baris. Saya menc
 
 **PENGGUNAAN AI** 
 
-AI membantu saya dalam membuatkan program `file.py` di mana pada file.py ini sayang mengingkan untuk memasukkan berbagai logika dan operasi. AI juga membantu validasi saya, yang awawlnya saya tidak sadar pada hal yang berkaitan dengan kendala. 
+AI membantu saya menyiapkan program pengujian t2.file.py yang memuat berbagai logika dan operasi. AI juga membantu memvalidasi hasil penjelajahan dan mengenali kendala perbedaan penomoran baris antara terminal dan Playground.
 
 [Program penjelajah](tugas1-3/t2.jelajah.py) · [Kode pengujian](tugas1-3/t2.file.py) · [Bukti output](tugas1-3/output/t2-pohon.txt)
 

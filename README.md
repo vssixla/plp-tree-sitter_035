@@ -396,7 +396,9 @@ python t2.jelajah.py t2.file.py
 
 ```bash
 cd tugas1-3
-python t3.q.py
+python t3.q.py t3.contoh.py t3.fungsi.scm
+python t3.q.py t3.contoh.py t3.print.scm
+python t3.q.py t3.contoh.py t3.impor.scm
 ```
 
 ### TUGAS 4 — GRAMMAR DSL

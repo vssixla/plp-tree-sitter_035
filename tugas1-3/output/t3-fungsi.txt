@@ -1,0 +1,3 @@
+sapa: 1 parameter
+luas: 2 parameter
+lokasi: 0 parameter

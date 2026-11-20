@@ -1,0 +1,6 @@
+@panggilan  baris 5: print("Halo", nama)
+@fn  baris 5: print
+@panggilan  baris 11: print(Path(os.getcwd()))
+@fn  baris 11: print
+@panggilan  baris 14: print(luas(3, 4))
+@fn  baris 14: print

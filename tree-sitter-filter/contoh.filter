@@ -1,1 +1,1 @@
-status in ("open", "pending", "closed")
+title contains "invoice"

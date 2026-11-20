@@ -13,7 +13,8 @@ export default grammar({
       $.or_expression,
       $.parenthesized,
       $.not_expression,
-      $.in_expression
+      $.in_expression,
+      $.contains_expression
     ),
 
     comparison: $ => seq(
@@ -29,6 +30,12 @@ export default grammar({
       $._value,
       repeat(seq(',', $._value)),
       ')'
+    ),
+
+    contains_expression: $ => seq(
+      field('field', $.identifier),
+      'contains',
+      field('value', $.string)
     ),
 
     _value: $ => choice(

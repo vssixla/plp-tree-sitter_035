@@ -118,3 +118,17 @@ status in ("open", "pending", "closed")
     (string)
     (string)
     (string)))
+
+
+====================================
+Operator CONTAINS untuk pencarian teks
+====================================
+
+title contains "invoice"
+
+---
+
+(query
+  (contains_expression
+    field: (identifier)
+    value: (string)))

@@ -16,21 +16,21 @@ export default grammar({
     ),
 
     comparison: $ => seq(
-      $.identifier,
+      field('field', $.identifier),
       choice('=', '!=', '>', '<', '>=', '<='),
-      choice($.string, $.number, $.boolean)
+      field('value', choice($.string, $.number, $.boolean))
     ),
 
     and_expression: $ => prec.left(2, seq(
-      $._expr,
+      field('left', $._expr),
       'and',
-      $._expr
+      field('right', $._expr)
     )),
 
     or_expression: $ => prec.left(1, seq(
-      $._expr,
+      field('left', $._expr),
       'or',
-      $._expr
+      field('right', $._expr)
     )),
 
     parenthesized: $ => seq(
@@ -41,7 +41,7 @@ export default grammar({
 
     not_expression: $ => prec(3, seq(
       'not',
-      $._expr
+      field('operand', $._expr)
     )),
 
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,

@@ -50,3 +50,33 @@ Saat membandingkan kedua output, saya menemukan perbedaan nomor baris. Saya menc
 **PENGGUNAAN AI** 
 
 AI membantu saya dalam membuatkan program `file.py` di mana pada file.py ini sayang mengingkan untuk memasukkan berbagai logika dan operasi. AI juga membantu validasi saya, yang awawlnya saya tidak sadar pada hal yang berkaitan dengan kendala. 
+
+
+## TUGAS 3: QUERY PERTAMA TREE-SITTER
+
+Saya membaca `t3.contoh.py` dan mencatat prediksi nama fungsi beserta jumlah parameternya, letak pemanggilan `print()`, dan nama modul yang diimpor. Saya kemudian menjalankan tiga query melalui `t3.q.py` dan membandingkan hasilnya dengan catatan tersebut.
+
+**PENGUJIAN DAN HASIL**
+
+| Query | Prediksi manual | Hasil query |
+|---|---|---|
+| `t3.fungsi.scm` | `sapa(nama)`, `luas(panjang, lebar)`, dan `lokasi()` | `sapa` memiliki 1 parameter, `luas` memiliki 2 parameter, dan `lokasi` memiliki 0 parameter. |
+| `t3.print.scm` | Tiga pemanggilan `print()` pada baris 5, 11, dan 14. | Capture `@panggilan` muncul satu kali pada masing-masing baris 5, 11, dan 14. |
+| `t3.impor.scm` | Modul `os` pada baris 1 dan `pathlib` pada baris 2. | Capture `@modul` menghasilkan `os` dan `pathlib` pada kedua baris tersebut. |
+
+Ketiga hasil sesuai dengan prediksi. Pada query fungsi, `matches()` memasangkan nama fungsi dengan daftar parameternya sehingga jumlah parameter dapat dihitung untuk setiap definisi. Pada `from pathlib import Path`, query menangkap `pathlib` sebagai modul sumber. Sementara itu, `Path` adalah nama yang diambil dari modul tersebut.
+
+**KENDALA DAN PENYELESAIAN**
+
+Saat memeriksa jumlah pemanggilan `print()`, saya memperhatikan bahwa satu pemanggilan menghasilkan dua baris output. Contohnya terlihat pada fungsi `lokasi()`:
+
+```text
+@panggilan  baris 11: print(Path(os.getcwd()))
+@fn  baris 11: print
+```
+
+Capture `@fn` menunjukkan nama fungsi yang diperiksa oleh predikat `#eq?`, sedangkan `@panggilan` menunjukkan seluruh ekspresi pemanggilan. Karena itu, saya menghitung kemunculan `@panggilan` dan memperoleh tiga pemanggilan. Pemanggilan di dalam `lokasi()` ikut terdeteksi meskipun fungsi itu belum dijalankan, karena Tree-sitter memeriksa struktur kode sumber.
+
+**CATATAN PENGGUNAAN AI**
+
+AI membantu saya untuk menyiapkan contoh kode, menyusun pola query, memahami perbedaan antara `@fn` dan `@panggilan`, serta memberikan path untuk mengerjakan tugas 3 ini. 

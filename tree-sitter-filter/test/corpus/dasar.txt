@@ -24,3 +24,21 @@ priority >= 2
   (comparison
     (identifier)
     (number)))
+
+
+====================================
+Dua perbandingan dengan operator AND
+====================================
+
+a = 1 and b = 2
+
+---
+
+(query
+  (and_expression
+    (comparison
+      (identifier)
+      (number))
+    (comparison
+      (identifier)
+      (number))))

@@ -87,3 +87,18 @@ Pengelompokan ekspresi dengan tanda kurung
     (comparison
       (identifier)
       (number))))
+
+
+====================================
+Operator NOT dengan nilai boolean
+====================================
+
+not archived = true
+
+---
+
+(query
+  (not_expression
+    (comparison
+      (identifier)
+      (boolean))))

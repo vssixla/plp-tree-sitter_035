@@ -11,13 +11,14 @@ export default grammar({
       $.comparison,
       $.and_expression,
       $.or_expression,
-      $.parenthesized
+      $.parenthesized,
+      $.not_expression
     ),
 
     comparison: $ => seq(
       $.identifier,
       choice('=', '!=', '>', '<', '>=', '<='),
-      choice($.string, $.number)
+      choice($.string, $.number, $.boolean)
     ),
 
     and_expression: $ => prec.left(2, seq(
@@ -38,10 +39,17 @@ export default grammar({
       ')'
     ),
 
+    not_expression: $ => prec(3, seq(
+      'not',
+      $._expr
+    )),
+
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
 
     string: $ => /"[^"]*"/,
 
     number: $ => /-?\d+(\.\d+)?/,
+
+    boolean: $ => choice('true', 'false'),
   }
 });

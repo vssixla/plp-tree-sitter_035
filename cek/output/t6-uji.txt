@@ -1,0 +1,4 @@
+uji\komentar.py:2: # TODO: tambahkan validasi jumlah barang
+uji\komentar.py:4: # FIXME: perbaiki pembulatan harga
+uji\panjang.py:1: fungsi hitung_stok memiliki 32 baris
+uji\rusak.py:2: kesalahan sintaks (ERROR)

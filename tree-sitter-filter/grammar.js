@@ -10,7 +10,8 @@ export default grammar({
     _expr: $ => choice(
       $.comparison,
       $.and_expression,
-      $.or_expression
+      $.or_expression,
+      $.parenthesized
     ),
 
     comparison: $ => seq(
@@ -25,12 +26,17 @@ export default grammar({
       $._expr
     )),
 
-    // Percobaan 4c: OR belum diberi prioritas
     or_expression: $ => prec.left(1, seq(
       $._expr,
       'or',
       $._expr
     )),
+
+    parenthesized: $ => seq(
+      '(',
+      $._expr,
+      ')'
+    ),
 
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
 
